@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<cocoa>, [">= 0"])
       s.add_runtime_dependency(%q<cairo>, [">= 0"])
+      s.add_development_dependency(%q<opine>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<activerecord>, ["~> 4.0.4"])
       s.add_development_dependency(%q<activesupport>, ["~> 4.0.4"])
@@ -60,6 +61,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<cocoa>, [">= 0"])
       s.add_dependency(%q<cairo>, [">= 0"])
+      s.add_dependency(%q<opine>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<activerecord>, ["~> 4.0.4"])
       s.add_dependency(%q<activesupport>, ["~> 4.0.4"])
@@ -72,6 +74,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<cocoa>, [">= 0"])
     s.add_dependency(%q<cairo>, [">= 0"])
+    s.add_dependency(%q<opine>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<activerecord>, ["~> 4.0.4"])
     s.add_dependency(%q<activesupport>, ["~> 4.0.4"])
