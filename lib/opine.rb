@@ -11,7 +11,7 @@ module Opine
     end
   end
   def self.theme
-    :dark
+    :native
   end
 end
 
