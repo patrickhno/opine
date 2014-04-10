@@ -1,5 +1,5 @@
-require 'canvas'
+require 'opine'
 
-Canvas.app do
+Opine.app do
   window
 end

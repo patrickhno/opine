@@ -1,5 +1,5 @@
 
-module Canvas
+module Opine
   def self.platform
     @platform ||= case RUBY_PLATFORM
     when /darwin/
@@ -15,20 +15,20 @@ module Canvas
   end
 end
 
-case Canvas.platform
+case Opine.platform
 when :osx
   require 'cocoa'
 end
 require 'cairo'
 
-require 'canvas/widget'
+require 'opine/widget'
 [:application, :alert, :window].each do |widget|
   [
     "#{widget}",
-    "#{widget}_#{Canvas.platform}",
-    "#{widget}_#{Canvas.theme}",
-    "#{widget}_#{Canvas.theme}_#{Canvas.platform}"
+    "#{widget}_#{Opine.platform}",
+    "#{widget}_#{Opine.theme}",
+    "#{widget}_#{Opine.theme}_#{Opine.platform}"
   ].each do |name|
-    require "canvas/widgets/#{name}" if File.exists?(File.dirname(__FILE__) + "/canvas/widgets/#{name}.rb")
+    require "opine/widgets/#{name}" if File.exists?(File.dirname(__FILE__) + "/opine/widgets/#{name}.rb")
   end
 end

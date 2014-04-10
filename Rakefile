@@ -4,8 +4,8 @@ PROJECT_SPECS = FileList['spec/**/*_spec.rb']
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name = "canvas"
-  gem.homepage = "http://github.com/patrickhno/canvas"
+  gem.name = "opine"
+  gem.homepage = "http://github.com/patrickhno/opine"
   gem.license = "MIT"
   gem.summary = %Q{Ruby widget toolkit}
   gem.description = %Q{A ruby widget toolkit for everyone and every computer}
@@ -26,7 +26,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "canvas #{version}"
+  rdoc.title = "Opine #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

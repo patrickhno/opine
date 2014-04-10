@@ -1,4 +1,4 @@
-class Canvas::Window < Canvas::Widget
+class Opine::Window < Opine::Widget
   attr_accessor :window, :title
   def initialize(&block)
     @block = block
@@ -37,8 +37,8 @@ class Canvas::Window < Canvas::Widget
   end
 end
 
-class Canvas::Application
+class Opine::Application
   def window(&block)
-    Canvas::Window.new(&block)
+    Opine::Window.new(&block)
   end
 end

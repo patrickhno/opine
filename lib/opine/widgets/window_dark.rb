@@ -87,9 +87,9 @@ class MyView < Cocoa::NSView
   end
 end
 
-module Canvas
+module Opine
   module Dark
-    class Window < Canvas::Window
+    class Window < Opine::Window
       def initialize(&block)
         super do |win|
           win.window.setOpaque false
@@ -111,8 +111,8 @@ module Canvas
 end
 
 
-class Canvas::Application
+class Opine::Application
   def window(&block)
-    Canvas::Dark::Window.new(&block)
+    Opine::Dark::Window.new(&block)
   end
 end

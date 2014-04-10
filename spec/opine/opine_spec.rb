@@ -1,8 +1,8 @@
 require_relative '../spec_helper'
-require 'canvas'
+require 'opine'
 
-describe 'Canvas' do |t|
-  Canvas.app do |app|
+describe 'Opine' do |t|
+  Opine.app do |app|
     t.it 'should run applications' do
       app.running?.should == true
     end

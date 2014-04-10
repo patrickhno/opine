@@ -1,4 +1,4 @@
-class Canvas::Application
+class Opine::Application
   def alert text
     application.activateIgnoringOtherApps true
     alert = Cocoa::NSAlert.alloc.init.autorelease

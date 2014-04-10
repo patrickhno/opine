@@ -1,4 +1,4 @@
-canvas
+opine
 =====
 
 A pure ruby soon to be cross platform widget toolkit.
@@ -6,15 +6,15 @@ A pure ruby soon to be cross platform widget toolkit.
 ### Installation
 
 ```
-gem install canvas
+gem install opine
 ```
 
 ### Usage
 
 ```ruby
-require 'canvas'
+require 'opine'
 
-Canvas.app do
+Opine.app do
   alert "Hello world!"
 end
 ```

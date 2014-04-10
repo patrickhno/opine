@@ -21,7 +21,7 @@
     end
   end
 
-class Canvas::Application
+class Opine::Application
   attr_accessor :application
   def initialize(&block)
     Cocoa::NSAutoreleasePool.new
@@ -49,7 +49,7 @@ class Canvas::Application
   end
 end
 
-module Canvas
+module Opine
   def self.app(&block)
     Application.new(&block)
   end
