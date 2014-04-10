@@ -6,6 +6,7 @@ end
 gem 'cairo' #, :path => '../rcairo'
 
 group :development do
+  gem 'opine', :path => '.' unless File.basename($0) == 'rake' && $*.first == 'gemspec'
   gem 'sqlite3'
   gem 'activerecord', '~> 4.0.4'
   gem 'activesupport', '~> 4.0.4'
