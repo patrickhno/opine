@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 if RUBY_PLATFORM =~ /darwin/
-  gem 'cocoa', :path => '../cocoa'
+  gem 'cocoa' #, :path => '../cocoa'
 end
 gem 'cairo' #, :path => '../rcairo'
 
