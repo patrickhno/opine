@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
     "VERSION",
     "canvas.gemspec",
     "examples/hello_world.rb",
-    "examples/table.rb",
     "examples/window.rb",
     "lib/canvas.rb",
     "lib/canvas/widget.rb",
