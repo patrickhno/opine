@@ -1,4 +1,7 @@
-  class MyApplication < Cocoa::NSObject
+
+class Opine::Application < Opine::Widget
+
+  class OSXApplication < Cocoa::NSObject
     attr_accessor :block, :application
 
     def applicationDidFinishLaunching notification
@@ -21,19 +24,19 @@
     end
   end
 
-class Opine::Application
-  attr_accessor :application
-  def initialize(&block)
+  def initialize(options,&block)
+    super
+
     Cocoa::NSAutoreleasePool.new
     @application = Cocoa::NSApplication.sharedApplication
     application.setActivationPolicy Cocoa::NSApplicationActivationPolicyRegular
 
-    @appDelegate = MyApplication.alloc.init.autorelease
-    @appDelegate.application = application
-    @appDelegate.block = ->() do
+    delegate = OSXApplication.alloc.init.autorelease
+    delegate.application = application
+    delegate.block = ->() do
       instance_eval(&block) if block
     end
-    application.setDelegate @appDelegate
+    application.setDelegate delegate
     application.run
   end
 
@@ -42,15 +45,10 @@ class Opine::Application
   end
 
   def terminate
-    @application.terminate @application
+    application.terminate application
   end
-  def stop
-    @application.stop @application
-  end
-end
 
-module Opine
-  def self.app(&block)
-    Application.new(&block)
+  def stop
+    application.stop application
   end
 end

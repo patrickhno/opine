@@ -10,9 +10,6 @@ module Opine
       :win
     end
   end
-  def self.theme
-    :native
-  end
 end
 
 case Opine.platform
@@ -21,14 +18,19 @@ when :osx
 end
 require 'cairo'
 
+module Opine::Native; end
+module Opine::Dark; end
+
 require 'opine/widget'
 [:application, :alert, :window].each do |widget|
-  [
-    "#{widget}",
-    "#{widget}_#{Opine.platform}",
-    "#{widget}_#{Opine.theme}",
-    "#{widget}_#{Opine.theme}_#{Opine.platform}"
-  ].each do |name|
-    require "opine/widgets/#{name}" if File.exists?(File.dirname(__FILE__) + "/opine/widgets/#{name}.rb")
+  [:native, :dark].each do |theme|
+    [
+      "#{widget}",
+      "#{widget}_#{Opine.platform}",
+      "#{widget}_#{theme}",
+      "#{widget}_#{theme}_#{Opine.platform}"
+    ].each do |name|
+      require "opine/widgets/#{name}" if File.exists?(File.dirname(__FILE__) + "/opine/widgets/#{name}.rb")
+    end
   end
 end

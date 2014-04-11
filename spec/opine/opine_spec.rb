@@ -19,6 +19,6 @@ describe 'Opine' do |t|
       end.visible?.should == true
     end
 
-    terminate
+    stop
   end
 end

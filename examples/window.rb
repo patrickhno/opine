@@ -1,5 +1,5 @@
 require 'opine'
 
 Opine.app do
-  window
+  window :title => "A window"
 end
