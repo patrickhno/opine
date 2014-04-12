@@ -1,4 +1,6 @@
 
+require 'active_support/core_ext/module/delegation'
+
 module Opine
   def self.platform
     @platform ||= case RUBY_PLATFORM
@@ -20,6 +22,8 @@ require 'cairo'
 
 module Opine::Native; end
 module Opine::Dark; end
+
+require 'opine/rect'
 
 require 'opine/widget'
 [:application, :alert, :window].each do |widget|

@@ -1,5 +1,5 @@
 
-class Opine::Application < Opine::Widget
+class Opine::Native::Application < Opine::Application
 
   class OSXApplication < Cocoa::NSObject
     attr_accessor :block, :application

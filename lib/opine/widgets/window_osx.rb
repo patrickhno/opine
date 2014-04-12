@@ -1,7 +1,7 @@
 
 class Opine::Native::Window < Opine::Window
   def initialize(options,&block)
-    @window = Cocoa::NSWindow.alloc.initWithContentRect(NSRect.new(x: 0, y: 0, width: 200, height: 200),
+    @window = Cocoa::NSWindow.alloc.initWithContentRect(options[:frame].native,
       styleMask: native_style,
       backing: NSBackingStoreBuffered,
       defer: false)

@@ -93,8 +93,7 @@ class Opine::Dark::Window < Opine::Native::Window
       win.window.setOpaque false
       win.window.setHasShadow true
 
-      height = window.frame[:size][:height]
-      view = TitleView.alloc.initWithFrame NSRect.new(x: 0, y: height-22, width: 200, height: 22)
+      view = TitleView.alloc.initWithFrame NSRect.new(x: frame.x, y: frame.height-22, width: frame.width, height: 22)
       window.contentView.addSubview view
       view.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable)
 
