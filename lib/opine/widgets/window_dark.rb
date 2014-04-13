@@ -1,3 +1,4 @@
+class Opine::Dark::Window < Opine::Native::Window
 
   class TitleView < Cocoa::NSView
     def drawRect rect
@@ -87,7 +88,6 @@
     end
   end
 
-class Opine::Dark::Window < Opine::Native::Window
   def initialize(options,&block)
     super do |win|
       win.window.setOpaque false

@@ -26,7 +26,7 @@ module Opine::Dark; end
 require 'opine/rect'
 
 require 'opine/widget'
-[:application, :alert, :window].each do |widget|
+[:application, :alert, :view, :window, :table].each do |widget|
   [:native, :dark].each do |theme|
     [
       "#{widget}",

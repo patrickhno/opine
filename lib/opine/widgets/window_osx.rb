@@ -15,7 +15,10 @@ class Opine::Native::Window < Opine::Window
     point[:y] = 220.0
     window.cascadeTopLeftFromPoint point
 
+    @content_view = Opine::View.new(window.contentView)
+
     instance_eval(&block) if block
+
     window.makeKeyAndOrderFront nil
   end
 
