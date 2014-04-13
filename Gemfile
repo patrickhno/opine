@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 if RUBY_PLATFORM =~ /darwin/
-  gem 'cocoa', ">= 0.1.5"
+  gem 'cocoa', '>= 0.1.6'
 end
 gem 'cairo'
 gem 'activesupport', '~> 4.0'
