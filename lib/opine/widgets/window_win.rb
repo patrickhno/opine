@@ -59,7 +59,7 @@ class Opine::Native::Window < Opine::Window
   end
 
   def initialize(options,&block)
-  	super
+    super
 
     @window = Window.new(self)
   end
