@@ -1,5 +1,6 @@
 
 require 'active_support/core_ext/module/delegation'
+require 'active_support/inflector'
 
 module Opine
   def self.platform
@@ -17,6 +18,8 @@ end
 case Opine.platform
 when :osx
   require 'cocoa'
+when :win
+  require 'stench'
 end
 require 'cairo'
 
