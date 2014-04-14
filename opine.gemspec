@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Patrick Hanevold"]
-  s.date = "2014-04-13"
+  s.date = "2014-04-14"
   s.description = "A ruby widget toolkit for everyone and every computer"
   s.email = "patrick.hanevold@gmail.com"
   s.extra_rdoc_files = [
@@ -32,14 +32,18 @@ Gem::Specification.new do |s|
     "lib/opine/rect.rb",
     "lib/opine/widget.rb",
     "lib/opine/widgets/alert.rb",
+    "lib/opine/widgets/alert_osx.rb",
+    "lib/opine/widgets/alert_win.rb",
     "lib/opine/widgets/application.rb",
     "lib/opine/widgets/application_osx.rb",
+    "lib/opine/widgets/application_win.rb",
     "lib/opine/widgets/table.rb",
     "lib/opine/widgets/table_osx.rb",
     "lib/opine/widgets/view_osx.rb",
     "lib/opine/widgets/window.rb",
-    "lib/opine/widgets/window_dark.rb",
+    "lib/opine/widgets/window_dark_osx.rb",
     "lib/opine/widgets/window_osx.rb",
+    "lib/opine/widgets/window_win.rb",
     "opine.gemspec",
     "spec/opine/opine_spec.rb",
     "spec/opine/widgets/application_spec.rb",
@@ -58,10 +62,10 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<cocoa>, [">= 0.1.6"])
+      s.add_runtime_dependency(%q<cocoa>, [">= 0.1.6"]) if RUBY_PLATFORM =~ /darwin/
+      s.add_runtime_dependency(%q<stench>, [">= 0.0.1"]) if RUBY_PLATFORM =~ /cygwin|mingw|mswin|windows/
       s.add_runtime_dependency(%q<cairo>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, ["~> 4.0"])
-      s.add_development_dependency(%q<opine>, [">= 0"])
       s.add_development_dependency(%q<sqlite3>, [">= 0"])
       s.add_development_dependency(%q<activerecord>, ["~> 4.0"])
       s.add_development_dependency(%q<bacon>, [">= 0"])
@@ -72,10 +76,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
-      s.add_dependency(%q<cocoa>, [">= 0.1.6"])
+      s.add_dependency(%q<cocoa>, [">= 0.1.6"]) if RUBY_PLATFORM =~ /darwin/
+      s.add_dependency(%q<stench>, [">= 0.0.1"]) if RUBY_PLATFORM =~ /cygwin|mingw|mswin|windows/
       s.add_dependency(%q<cairo>, [">= 0"])
       s.add_dependency(%q<activesupport>, ["~> 4.0"])
-      s.add_dependency(%q<opine>, [">= 0"])
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<activerecord>, ["~> 4.0"])
       s.add_dependency(%q<bacon>, [">= 0"])
@@ -87,10 +91,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<cocoa>, [">= 0.1.6"])
+    s.add_dependency(%q<cocoa>, [">= 0.1.6"]) if RUBY_PLATFORM =~ /darwin/
+    s.add_dependency(%q<stench>, [">= 0.0.1"]) if RUBY_PLATFORM =~ /cygwin|mingw|mswin|windows/
     s.add_dependency(%q<cairo>, [">= 0"])
     s.add_dependency(%q<activesupport>, ["~> 4.0"])
-    s.add_dependency(%q<opine>, [">= 0"])
     s.add_dependency(%q<sqlite3>, [">= 0"])
     s.add_dependency(%q<activerecord>, ["~> 4.0"])
     s.add_dependency(%q<bacon>, [">= 0"])
