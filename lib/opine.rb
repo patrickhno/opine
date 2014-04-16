@@ -20,6 +20,8 @@ when :osx
   require 'cocoa'
 when :win
   require 'stench'
+when :gtk
+  require 'gtk3'
 end
 require 'cairo'
 

@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem 'cocoa', '>= 0.1.6'
 gem 'stench', '>= 0.0.1'
+gem 'gtk3', '>= 2.2'
 gem 'cairo'
 gem 'activesupport', '~> 4.0'
 
