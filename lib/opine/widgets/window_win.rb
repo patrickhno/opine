@@ -62,6 +62,8 @@ class Opine::Native::Window < Opine::Window
     super
 
     @window = Window.new(self)
+
+    instance_eval(&block) if block
   end
 end
 
