@@ -28,6 +28,6 @@ class Opine::Native::Table < Opine::Table
 
     super(options)
 
-    parent.window.add(native)
+    parent.native.add(native)
   end
 end

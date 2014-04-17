@@ -90,11 +90,11 @@ class Opine::Dark::Window < Opine::Native::Window
 
   def initialize(options,&block)
     super do |win|
-      win.window.setOpaque false
-      win.window.setHasShadow true
+      win.native.setOpaque false
+      win.native.setHasShadow true
 
       view = TitleView.alloc.initWithFrame NSRect.new(x: frame.x, y: frame.height-22, width: frame.width, height: 22)
-      window.contentView.addSubview view
+      win.native.contentView.addSubview view
       view.setAutoresizingMask(NSViewWidthSizable | NSViewHeightSizable)
 
       instance_eval(&block) if block

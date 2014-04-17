@@ -28,27 +28,27 @@ class Opine::Native::Application < Opine::Application
     super
 
     Cocoa::NSAutoreleasePool.new
-    @application = Cocoa::NSApplication.sharedApplication
-    application.setActivationPolicy Cocoa::NSApplicationActivationPolicyRegular
+    @native = Cocoa::NSApplication.sharedApplication
+    native.setActivationPolicy Cocoa::NSApplicationActivationPolicyRegular
 
     delegate = OSXApplication.alloc.init.autorelease
-    delegate.application = application
+    delegate.application = native
     delegate.block = ->() do
       instance_eval(&block) if block
     end
-    application.setDelegate delegate
-    application.run
+    native.setDelegate delegate
+    native.run
   end
 
   def running?
-    application.isRunning
+    native.isRunning
   end
 
   def terminate
-    application.terminate application
+    native.terminate native
   end
 
   def stop
-    application.stop application
+    native.stop native
   end
 end

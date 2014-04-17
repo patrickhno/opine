@@ -2,7 +2,7 @@ class Opine::Native::Alert < Opine::Alert
   def initialize(options,&block)
   	super
 
-    application.activateIgnoringOtherApps true
+    application.native.activateIgnoringOtherApps true
     alert = Cocoa::NSAlert.alloc.init.autorelease
     alert.setMessageText text
     alert.runModal

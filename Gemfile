@@ -2,8 +2,8 @@ source "http://rubygems.org"
 
 gem 'cocoa', '>= 0.1.6'
 gem 'stench', '>= 0.0.1'
-gem 'gtk3', '>= 2.2'
-gem 'cairo'
+gem 'gtk3', '>= 2.2' unless RUBY_PLATFORM =~ /cygwin|mingw|mswin|windows/
+gem 'cairo', :git => 'https://github.com/rcairo/rcairo.git'
 gem 'activesupport', '~> 4.0'
 
 group :development do

@@ -1,5 +1,5 @@
 class Opine::Window < Opine::Widget
-  attr_accessor :window, :title, :content_view, :frame
+  attr_accessor :title, :content_view, :frame
   delegate :x, :y, :width, :height, :x=, :y=, :width=, :height=, :to => :frame
 
   DEFAULTS = {
@@ -10,6 +10,6 @@ end
 
 class Opine::Application
   def window(options={},&block)
-    "Opine::#{theme.to_s.camelize}::Window".constantize.new(Opine::Window::DEFAULTS.merge(options),&block)
+    "Opine::#{theme.to_s.camelize}::Window".constantize.new(Opine::Window::DEFAULTS.merge(options).merge(:parent => self),&block)
   end
 end

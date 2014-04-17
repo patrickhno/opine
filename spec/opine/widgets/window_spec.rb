@@ -18,12 +18,14 @@ describe 'Window' do |t|
   end
 
   it 'should have default parameters' do
-    Opine::Native::Window.expects(:new).with(:title => 'ruby', :frame => Opine::Rect.new(x: 0, y: 0, width: 320, height: 240))
-    Opine::Application.new(:theme => :native).window
+    app = Opine::Application.new(:theme => :native)
+    Opine::Native::Window.expects(:new).with(:title => 'ruby', :frame => Opine::Rect.new(x: 0, y: 0, width: 320, height: 240), :parent => app)
+    app.window
   end
 
   it 'should override default parameters' do
-    Opine::Native::Window.expects(:new).with(:title => 'Yes it does', :frame => Opine::Rect.new(x: 0, y: 0, width: 320, height: 240))
-    Opine::Application.new(:theme => :native).window(:title => 'Yes it does')
+    app = Opine::Application.new(:theme => :native)
+    Opine::Native::Window.expects(:new).with(:title => 'Yes it does', :frame => Opine::Rect.new(x: 0, y: 0, width: 320, height: 240), :parent => app)
+    app.window(:title => 'Yes it does')
   end
 end

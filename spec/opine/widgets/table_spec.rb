@@ -3,8 +3,8 @@ require 'opine'
 
 describe 'Table' do |t|
   it 'should pass parameters' do
-    Opine::Application.new(:theme => :native).window do
-      Opine::Native::Table.expects(:new).with(self,{:columns => [:a, :b]},{})
+    Opine::Application.new(:theme => :native).window do |win|
+      Opine::Native::Table.expects(:new).with(self,{:columns => [:a, :b]},{ :parent => win })
       table(:columns => [:a, :b])
     end
   end
