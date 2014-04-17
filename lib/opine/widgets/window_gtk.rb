@@ -13,7 +13,7 @@ class Opine::Native::Window < Opine::Window
 
     instance_eval(&block) if block
 
-    window.show
+    window.show_all
   end
 
   def title= name
