@@ -1,15 +1,16 @@
 class Opine::Native::Table < Opine::Table
-  delegate :hooks, :reload, :to => :native
+  delegate :reload, :to => :native
 
   class OSXTable < Cocoa::NSObject
-    attr_accessor :table_view, :hooks
-    def initialize parent,resources,options,&block
+    attr_accessor :table, :table_view, :hooks
+    delegate :hooks, :to => :table
+    def initialize table, parent,resources,options,&block
       super()
 
+      @table = table
       @parent = parent
       @resources = resources
       @columns = options[:columns] || @resources.columns.map{ |col| col.name }
-      @hooks = {}
 
       table_container = Cocoa::NSScrollView.alloc.initWithFrame parent.frame.native
       @table_view = Cocoa::NSTableView.alloc.initWithFrame parent.frame.native
@@ -70,7 +71,7 @@ class Opine::Native::Table < Opine::Table
     @parent = parent
     @resources = resources
     @resources = @resources.to_s.singularize.classify.constantize.all if @resources.is_a?(Symbol)
-    @native = OSXTable.new(window,@resources,options,&block)
+    @native = OSXTable.new(self,window,@resources,options,&block)
     instance_eval(&block) if block
   end
 end

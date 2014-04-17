@@ -1,6 +1,4 @@
 class Opine::Native::Table < Opine::Table
-  delegate :hooks, :reload, :to => :native
-
   def initialize parent,resources,options,&block
     @columns = options[:columns] || @resources.columns.map{ |col| col.name }
 
@@ -27,6 +25,12 @@ class Opine::Native::Table < Opine::Table
     end
 
     super(options)
+    instance_eval(&block) if block
+
+    native.signal_connect "cursor-changed" do
+      path,column = native.cursor
+      hooks[:on_select_row].call(path.indices.first) if hooks[:on_select_row]
+    end
 
     parent.native.add(native)
   end

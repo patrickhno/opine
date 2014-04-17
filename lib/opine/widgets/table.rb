@@ -1,5 +1,9 @@
 class Opine::Table < Opine::Widget
-  attr_accessor :resources, :columns
+  attr_accessor :resources, :columns, :hooks
+
+  def hooks
+    @hooks ||= {}
+  end
 
   def on_select_row(&block)
     hooks[:on_select_row] = block
