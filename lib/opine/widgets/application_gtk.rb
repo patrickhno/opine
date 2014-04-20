@@ -3,7 +3,15 @@ class Opine::Native::Application < Opine::Application
     super
 
     Gtk.init
+    @running = true
     instance_eval(&block) if block
     Gtk.main
+  end
+
+  def running?
+    @running ? true : false
+  end
+
+  def stop
   end
 end

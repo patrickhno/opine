@@ -14,9 +14,14 @@ class Opine::Native::Window < Opine::Window
     instance_eval(&block) if block
 
     native.show_all
+    @visible = true # TODO: haven't found a good way to check
   end
 
   def title= name
     native.set_title name
+  end
+
+  def visible?
+    @visible ? true : false
   end
 end
