@@ -3,7 +3,7 @@ require 'opine'
 
 describe 'Table' do |t|
   it 'should pass parameters' do
-    Opine::Application.new(:theme => :native).window do |win|
+    window do |win|
       Opine::Native::Table.expects(:new).with(self,{:columns => [:a, :b]},{ :parent => win })
       table(:columns => [:a, :b])
     end
@@ -12,7 +12,9 @@ describe 'Table' do |t|
   it 'should accept hooks' do
     records = mock('Records')
     records.expects(:to_a).returns([])
-    Opine::Application.new(:theme => :native).window do
+    records.expects(:columns).returns({}) if Opine.platform == :gtk
+
+    window do |win|
       table(records, :columns => [:a, :b]) do
         on_select_row do |i|
         end
