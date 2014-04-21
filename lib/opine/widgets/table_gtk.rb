@@ -6,7 +6,7 @@ class Opine::Native::Table < Opine::Table
 
     attribute_map = resources.columns.inject({}){ |map,item| map[item.name.to_sym] = item.type; map }
     types = @columns.map{ |name| attribute_map[name] || :string }
-    treestore.set_column_types(*types.map{ |type| type.to_s.camelize.constantize })
+    treestore.column_types = types.map{ |type| type.to_s.camelize.constantize }
 
     resources.to_a.each do |record|
       row = treestore.append(nil)

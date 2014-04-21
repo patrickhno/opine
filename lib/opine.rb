@@ -21,7 +21,7 @@ when :osx
 when :win
   require 'stench'
 when :gtk
-  require 'gtk3'
+  require 'gir_ffi-gtk3'
 end
 require 'cairo'
 

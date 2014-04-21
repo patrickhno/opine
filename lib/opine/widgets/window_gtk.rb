@@ -5,7 +5,7 @@ class Opine::Native::Window < Opine::Window
     super
 
     native.set_default_size frame.width, frame.height
-    native.set_window_position :center
+    native.set_position :center
 
     native.signal_connect "destroy" do 
       Gtk.main_quit 

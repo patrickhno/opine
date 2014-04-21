@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem 'cocoa', '>= 0.1.6'
 gem 'stench', '>= 0.0.1'
-gem 'gtk3', '>= 2.2' unless RUBY_PLATFORM =~ /cygwin|mingw|mswin|windows/
+gem 'gir_ffi-gtk', :git => 'https://github.com/patrickhno/gir_ffi-gtk.git'
 gem 'cairo', :git => 'https://github.com/rcairo/rcairo.git'
 gem 'activesupport', '~> 4.0'
 
