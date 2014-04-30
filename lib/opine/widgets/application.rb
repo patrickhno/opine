@@ -1,5 +1,7 @@
 class Opine::Application < Opine::Widget
-  DEFAULTS = { :theme => :native }
+  attr_accessor :title
+
+  DEFAULTS = { :theme => :native, :title => 'Opine' }
 
   def theme
     @@theme
